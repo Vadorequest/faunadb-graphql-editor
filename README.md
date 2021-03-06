@@ -26,4 +26,4 @@ This way, you can quickly restore it using copy/paste right into the editor.
 
 ## Fork
 
-This is a fork of [personal-graphql-editor](https://github.com/Vadorequest/personal-graphql-editor).
+This is a fork of [@Vadorequest/personal-graphql-editor](https://github.com/Vadorequest/personal-graphql-editor), specifically adapted to FaunaDB.

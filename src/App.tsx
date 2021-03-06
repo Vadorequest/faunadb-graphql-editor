@@ -76,7 +76,7 @@ scalar Time
       >
         {/* eslint-disable-next-line react/jsx-no-target-blank */}
         <a
-          href={'https://github.com/Vadorequest/personal-graphql-editor'}
+          href={'https://github.com/Vadorequest/faunadb-graphql-editor'}
           target={'_blank'}
         >
           <img

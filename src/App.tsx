@@ -8,12 +8,30 @@ import gitHubLogo from './assets/github-logo-transparent.png';
 
 export const App = () => {
   let defaultGqlEditorSchema: PassedSchema = {
-    code: '',
-    libraries: '',
+    code: `# FaunaDB internals
+directive @embedded on OBJECT
+directive @collection(name: String!) on OBJECT
+directive @index(name: String!) on FIELD_DEFINITION
+directive @resolver(
+  name: String
+  paginated: Boolean! = false
+) on FIELD_DEFINITION
+directive @relation(name: String) on FIELD_DEFINITION
+directive @unique(index: String) on FIELD_DEFINITION
+
+scalar Date
+scalar Long
+scalar Time
+
+########
+# Custom
+########
+`,
+    libraries: ``,
   };
 
   try {
-    const gqlEditorSchema: string | null = localStorage.getItem('gqlEditorSchema');
+    const gqlEditorSchema: string | null = localStorage.getItem('faunadb-gqlEditorSchema');
 
     if (gqlEditorSchema) {
       defaultGqlEditorSchema = JSON.parse(gqlEditorSchema);
@@ -26,7 +44,7 @@ export const App = () => {
   const [gqlEditorSchema, setGqlEditorSchema] = useState<PassedSchema>(defaultGqlEditorSchema);
 
   useEffect(() => {
-    localStorage.setItem('gqlEditorSchema', JSON.stringify(gqlEditorSchema));
+    localStorage.setItem('faunadb-gqlEditorSchema', JSON.stringify(gqlEditorSchema));
     console.log('Schema saved to local storage.');
   }, [gqlEditorSchema]);
 

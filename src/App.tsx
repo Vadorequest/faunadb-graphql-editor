@@ -8,24 +8,41 @@ import gitHubLogo from './assets/github-logo-transparent.png';
 
 export const App = () => {
   let defaultGqlEditorSchema: PassedSchema = {
-    code: `# FaunaDB internals
+    code: `"""
+###################### FaunaDB internals
+"""
 directive @embedded on OBJECT
-directive @collection(name: String!) on OBJECT
-directive @index(name: String!) on FIELD_DEFINITION
-directive @resolver(
-  name: String
-  paginated: Boolean! = false
+
+directive @collection(
+    name: String!
+) on OBJECT
+
+directive @index(
+    name: String!
 ) on FIELD_DEFINITION
-directive @relation(name: String) on FIELD_DEFINITION
-directive @unique(index: String) on FIELD_DEFINITION
+
+directive @resolver(
+    name: String
+    paginated: Boolean! = false
+) on FIELD_DEFINITION
+
+directive @relation(
+    name: String
+) on FIELD_DEFINITION
+
+directive @unique(
+    index: String
+) on FIELD_DEFINITION
 
 scalar Date
+
 scalar Long
+
 scalar Time
 
-########
-# Custom
-########
+"""
+###################### Custom
+"""
 `,
     libraries: ``,
   };
